@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  api:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - PORT=8080
+      - WALMART_API_KEY=${WALMART_API_KEY}
+      - WALGREENS_API_KEY=${WALGREENS_API_KEY}
+    restart: unless-stopped

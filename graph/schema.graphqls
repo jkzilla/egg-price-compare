@@ -1,0 +1,27 @@
+type Query {
+  eggPrices: EggPriceComparison!
+  priceHistory(days: Int = 7): [PriceHistoryEntry!]!
+}
+
+type EggPriceComparison {
+  walmart: StorePrice!
+  walgreens: StorePrice!
+  cheapest: String!
+  priceDifference: Float!
+  lastUpdated: String!
+}
+
+type StorePrice {
+  store: String!
+  price: Float!
+  productName: String!
+  productUrl: String
+  inStock: Boolean!
+  lastUpdated: String!
+}
+
+type PriceHistoryEntry {
+  date: String!
+  walmartPrice: Float!
+  walgreensPrice: Float!
+}
