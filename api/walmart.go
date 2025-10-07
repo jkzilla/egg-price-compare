@@ -35,10 +35,6 @@ func NewWalmartAPI() *WalmartAPI {
 }
 
 func (w *WalmartAPI) GetEggPrice() (*model.StorePrice, error) {
-	// For demo purposes, return mock data
-	// In production, you would call the actual Walmart API
-	// Example: https://developer.walmart.com/api/us/mp/items
-	
 	if w.apiKey == "" {
 		// Return mock data for development
 		productURL := "https://www.walmart.com/ip/eggs"
@@ -52,8 +48,9 @@ func (w *WalmartAPI) GetEggPrice() (*model.StorePrice, error) {
 		}, nil
 	}
 
-	// Real API call would go here
-	url := fmt.Sprintf("https://api.walmart.com/v1/search?query=eggs+dozen&apiKey=%s", w.apiKey)
+	// Walmart Product API endpoint
+	// Search for eggs (dozen, large, white)
+	url := fmt.Sprintf("https://developer.api.walmart.com/api-proxy/service/affil/product/v2/search?query=eggs+dozen+large&apiKey=%s&format=json", w.apiKey)
 	
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {

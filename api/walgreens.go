@@ -39,9 +39,6 @@ func NewWalgreensAPI() *WalgreensAPI {
 }
 
 func (w *WalgreensAPI) GetEggPrice() (*model.StorePrice, error) {
-	// For demo purposes, return mock data
-	// In production, you would call the actual Walgreens API
-	
 	if w.apiKey == "" {
 		// Return mock data for development
 		productURL := "https://www.walgreens.com/store/eggs"
@@ -55,8 +52,9 @@ func (w *WalgreensAPI) GetEggPrice() (*model.StorePrice, error) {
 		}, nil
 	}
 
-	// Real API call would go here
-	url := fmt.Sprintf("https://api.walgreens.com/v1/products/search?q=eggs&apiKey=%s", w.apiKey)
+	// Walgreens uses their Product Catalog API
+	// Note: Walgreens API requires OAuth 2.0 authentication
+	url := fmt.Sprintf("https://services.walgreens.com/api/products/search?apikey=%s&q=eggs+dozen", w.apiKey)
 	
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
