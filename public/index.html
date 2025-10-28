@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🥚 Egg Price Comparison API</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            max-width: 600px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin: 0 0 1rem 0;
+            color: #333;
+        }
+        .emoji {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+        .button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin: 0.5rem;
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        .code {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9rem;
+            text-align: left;
+            overflow-x: auto;
+        }
+        .feature {
+            background: #f9f9f9;
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            text-align: left;
+        }
+        .feature h3 {
+            margin: 0 0 0.5rem 0;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="emoji">🥚</div>
+        <h1>Egg Price Comparison API</h1>
+        <p>Compare egg prices between Walmart and Walgreens using our GraphQL API</p>
+        
+        <a href="/graphql" class="button">🚀 Open GraphQL Playground</a>
+        
+        <div class="feature">
+            <h3>📍 Try Different Zipcodes</h3>
+            <p>Get price comparisons for any US zipcode. Mock data is currently enabled for testing.</p>
+        </div>
+        
+        <div class="code">
+<pre>{
+  eggPrices(zipcode: "10001") {
+    walmart {
+      finalPrice
+      productName
+      inStock
+    }
+    walgreens {
+      finalPrice
+      productName
+      inStock
+    }
+    cheapest
+    priceDifference
+  }
+}</pre>
+        </div>
+        
+        <div class="feature">
+            <h3>✨ Features</h3>
+            <p>
+                • Real-time price comparison<br>
+                • Digital offers & coupons<br>
+                • Stock availability<br>
+                • Pickup ETA information<br>
+                • Price history tracking
+            </p>
+        </div>
+        
+        <p style="margin-top: 2rem; font-size: 0.9rem; color: #999;">
+            GraphQL Endpoint: <code>/graphql</code>
+        </p>
+    </div>
+</body>
+</html>

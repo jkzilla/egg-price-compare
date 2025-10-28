@@ -1,0 +1,39 @@
+# GraphQL schema location
+schema:
+  - graph/schema.graphqls
+
+# Where should the generated server code go?
+exec:
+  filename: graph/generated.go
+  package: graph
+
+# Where should the generated models go?
+model:
+  filename: graph/model/models_gen.go
+  package: model
+
+# Where should the resolver implementations go?
+resolver:
+  layout: follow-schema
+  dir: graph
+  package: graph
+  filename_template: "{name}.resolvers.go"
+
+# Optional: skip running `go mod tidy` when generating server code
+# skip_mod_tidy: true
+
+# Optional: Uncomment to enable federation
+# federation:
+#   filename: graph/federation.go
+#   package: graph
+
+# Tell gqlgen to use existing model types
+models:
+  EggPriceComparison:
+    model: github.com/jkzilla/egg-price-compare/graph/model.EggPriceComparison
+  RetailerPrice:
+    model: github.com/jkzilla/egg-price-compare/graph/model.RetailerPrice
+  DigitalOffer:
+    model: github.com/jkzilla/egg-price-compare/graph/model.DigitalOffer
+  PriceHistoryEntry:
+    model: github.com/jkzilla/egg-price-compare/graph/model.PriceHistoryEntry

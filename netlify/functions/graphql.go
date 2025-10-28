@@ -2,9 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
-	"log"
-	"os"
 
 	"github.com/99designs/gqlgen/graphql/handler"
 	"github.com/aws/aws-lambda-go/events"

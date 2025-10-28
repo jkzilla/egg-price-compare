@@ -1,11 +1,11 @@
 [build]
   base = "."
-  command = "go build -o egg-price-compare ."
+  command = "chmod +x netlify/build.sh && ./netlify/build.sh"
   publish = "public"
   functions = "netlify/functions"
 
 [build.environment]
-  GO_VERSION = "1.21"
+  GO_VERSION = "1.24"
 
 [[redirects]]
   from = "/graphql"

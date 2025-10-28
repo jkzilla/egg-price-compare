@@ -1,23 +1,39 @@
 type Query {
-  eggPrices: EggPriceComparison!
+  eggPrices(zipcode: String!): EggPriceComparison!
   priceHistory(days: Int = 7): [PriceHistoryEntry!]!
 }
 
 type EggPriceComparison {
-  walmart: StorePrice!
-  walgreens: StorePrice!
+  walmart: RetailerPrice!
+  walgreens: RetailerPrice!
   cheapest: String!
   priceDifference: Float!
   lastUpdated: String!
 }
 
-type StorePrice {
+type RetailerPrice {
   store: String!
-  price: Float!
+  sku: String
+  upc: String
+  storeId: String
+  zipcode: String!
+  basePrice: Float!
+  promoPrice: Float
+  finalPrice: Float!
   productName: String!
   productUrl: String
   inStock: Boolean!
+  pickupEta: String
+  digitalOffers: [DigitalOffer!]
   lastUpdated: String!
+}
+
+type DigitalOffer {
+  offerId: String!
+  description: String!
+  discountAmount: Float
+  discountPercent: Float
+  expiresAt: String
 }
 
 type PriceHistoryEntry {
