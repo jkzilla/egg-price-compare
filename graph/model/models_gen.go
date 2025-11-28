@@ -2,5 +2,11 @@
 
 package model
 
-type Query struct {
-}
+// The concrete GraphQL models are defined in models.go and
+// referenced via the `models` mapping in gqlgen.yml.
+// This file is intentionally minimal to avoid duplicate type
+// definitions when generating code.
+
+// Query is kept as a stub so gqlgen can compile its
+// generated resolver signatures.
+type Query struct{}
